@@ -245,6 +245,8 @@ def dissect(compound, ahocs, only_nouns=True, make_singular=False, mask_unknown=
     # is a valid entry in the dictionary
     if only_nouns:
         # workaround to prevent unwanted behaviour (only nouns are eligible)
+        if len(results) == 0:
+            return [compound]
         results[0] = results[0][0].upper() + results[0][1:]
         for ri in range(len(results) - 1):
             if results[ri].islower():
